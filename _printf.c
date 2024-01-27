@@ -26,22 +26,21 @@ int _printf(const char *format, ...)
             if (spec == 'c')
             {
                 char c = va_arg(args, int);
-                count += write(1, &c, 1);
+                count += _printchar(c);
             }
             else if (spec == 's')
             {
                 char *str = va_arg(args, char*);
-                while (*str)
-                    count += write(1, str++, 1);
+                count += _printstr(str);
             }
             else if (spec == '%')
             {
-                count += write(1, "%", 1);
+                count += _printchar('%');
             }
         }
         else
         {
-            count += write(1, format, 1);
+            count += _putchar(*format);
         }
 
         format++;
