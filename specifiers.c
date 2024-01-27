@@ -8,7 +8,7 @@
  */
 int _printchar(char c)
 {
-    return (_putchar(c));
+	return (_putchar(c));
 }
 
 /**
@@ -19,10 +19,10 @@ int _printchar(char c)
  */
 int _printstr(char *str)
 {
-    int count = 0;
-    while (*str)
-    {
-        count += _putchar(*str++);
-    }
-    return count;
+	int count;
+
+	count = 0;
+	while (*str)
+		count += _putchar(*str++);
+	return (count);
 }
