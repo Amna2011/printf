@@ -26,3 +26,25 @@ int _printstr(char *str)
 		count += _putchar(*str++);
 	return (count);
 }
+/**
+ * _printint - Prints an integer to standard output.
+ * @num: The integer to print.
+ *
+ * Return: The number of characters printed.
+ */
+
+int _printint(int num)
+{
+	int count;
+
+	count = 0;
+	if (num < 0)
+	{
+		count += _putchar('-');
+		num = -num;
+	}
+	if (num / 10)
+		count += _printint(num / 10);
+	count += _putchar(num % 10 + '0');
+	return (count);
+}
