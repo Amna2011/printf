@@ -33,4 +33,4 @@ This project is a C program that creates a custom printf function that can produ
 
 * To run the program, type `./_printf` and press enter
 * ### Authors
-[malloudaya]((https://github.com/malloudaya)) and [Amna2011](https://github.com/Amna2011)
+[malloudaya](https://github.com/malloudaya) and [Amna2011](https://github.com/Amna2011)
