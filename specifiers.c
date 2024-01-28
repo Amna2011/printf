@@ -12,10 +12,10 @@ int _printchar(char c)
 }
 
 /**
- * _printstr - Prints a string to standard output.
+ * _printstr - Prints string to standard output.
  * @str: The string to print.
  *
- * Return: The number of characters printed.
+ * Return: number of characters printed.
  */
 int _printstr(char *str)
 {
