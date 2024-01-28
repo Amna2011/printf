@@ -21,13 +21,17 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%' && (*(format + 1) == 'c'
-			|| *(format + 1) == 's' || *(format + 1) == '%' || *(format + 1) == 'd' || *(format + 1) == 'i'))
+			|| *(format + 1) == 's' || *(format + 1) == '%'
+			|| *(format + 1) == 'd' || *(format + 1) == 'i'))
 		{
 			format++;
 			spec = *format;
-			num = va_arg(args, int);
-			count += _printint(num);
-			if (spec == 'c')
+			if (spec == 'd')
+			{
+				num = va_arg(args, int);
+				count += _printint(num);
+			}
+			else if (spec == 'c')
 			{
 				c = va_arg(args, int);
 				count += _printchar(c);
