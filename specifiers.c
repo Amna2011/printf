@@ -8,7 +8,7 @@
  */
 int _printchar(char c)
 {
-	return (write(1,&c,1));
+	return (_putchar(c));
 }
 
 /**
@@ -23,7 +23,7 @@ int _printstr(char *str)
 
 	count = 0;
 	while (*str)
-		count += write(1,str++,1);
+		count += _putchar(*str++);
 	return (count);
 }
 /**
@@ -36,17 +36,15 @@ int _printstr(char *str)
 int _printint(int num)
 {
 	int count;
-	char digit;
 
-	digit = num % 10 + '0';
 	count = 0;
 	if (num < 0)
 	{
-		count += write(1,"-",1);
+		count += _putchar('-');
 		num = -num;
 	}
 	if (num / 10)
 		count += _printint(num / 10);
-	count += write(1, &digit, 1);;
+	count += _putchar(num % 10 + '0');
 	return (count);
 }
