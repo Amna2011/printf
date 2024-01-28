@@ -31,6 +31,11 @@ int _printf(const char *format, ...)
 				num = va_arg(args, int);
 				count += _printint(num);
 			}
+			else if (spec == 'i')
+			{
+				num = va_arg(args, int);
+				count += _printint(num);
+			}
 			else if (spec == 'c')
 			{
 				c = va_arg(args, int);
