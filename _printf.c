@@ -1,50 +1,46 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
+
 /**
- * _printf - Produces output according to a format.
- * @format: The format string containing conversion specifiers.
+ * _printf - produces output according to format
+ * @format: format string containing zero or more directives
  *
- * Return: The number of characters printed (excluding the null byte).
+ * Return: the number of characters printed, excluding null byte
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int count;
-	char spec;
-	char c;
-	char *str;
+	data_t types[] = {
+		{"c", _printchar}, {"s", _printstr}};
+	int i, j, counter = 0;
+	va_list ap;
 
-	count = 0;
-	va_start(args, format);
-	while (*format)
+	va_start(ap, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format == '%' && (*(format + 1) == 'c'
-			|| *(format + 1) == 's' || *(format + 1) == '%'))
+		if (format[i] != '%')
+			counter += _putchar(format[i]);
+		else if (format[i + 1] == '%')
 		{
-			format++;
-			spec = *format;
-			if (spec == 'c')
-			{
-				c = va_arg(args, int);
-				count += _printchar(c);
-			}
-			else if (spec == 's')
-			{
-				str = va_arg(args, char*);
-				count += _printstr(str);
-			}
-			else if (spec == '%')
-			{
-				count += _printchar('%');
-			}
+			counter += _putchar('%');
+			i++;
+		}
+		else if (format[i + 1] != 'c' && format[i + 1] != 's')
+		{
+			counter += _putchar('%');
+			counter += _putchar(format[i + 1]);
+			i++;
 		}
 		else
 		{
-			count += _putchar(*format);
+			for (j = 0; j < 6; j++)
+				if (format[i + 1] == *types[j].type)
+					counter += types[j].func(ap);
+			i++;
 		}
-		format++;
 	}
-	va_end(args);
-	return (count);
+	va_end(ap);
+	return (counter);
 }
