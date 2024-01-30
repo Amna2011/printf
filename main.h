@@ -10,6 +10,6 @@ char _putchar(char c);
 int _printstr(char *str);
 int _printchar(char c);
 int _printint(int num);
-int ft_char(const char *format, va_list args);
 int decToBinary(int n);
+int _formatspec(const char *format, va_list args);
 #endif /* MAIN_H */
