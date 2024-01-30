@@ -7,7 +7,7 @@
  */
 int decToBinary(int n)
 {
-int i, x[32], y[32];
+int i, x[32], y[32], j;
 i = 0;
 
 while (n > 0)
@@ -16,7 +16,7 @@ y[i] = n % 2;
 n = n / 2;
 i++;
 }
-for (int j = i - 1; j >= 0; j--)
+for (j = i - 1; j >= 0; j--)
 {
 *x = y[j];
 }
