@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 /**
  * _formatspec - responsible for handling conversion specifiers
  * @format: format string conversion specifiers.
- * @args: The character to print, argument pointer
+ * @args: Character to print, argument pointer
  *
  * Return: count.
  */
