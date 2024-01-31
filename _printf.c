@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 }
 
 /**
- * _formatspec - responsible for handling the conversion specifiers
+ * _formatspec - responsible for handling conversion specifiers
  * @format: format string conversion specifiers.
  * @args: The character to print, argument pointer
  *
