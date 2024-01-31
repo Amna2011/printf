@@ -13,7 +13,7 @@ int _printchar(char c)
 
 /**
  * _printstr - Prints string to standard output.
- * @str: The string to print.
+ * @str: string to print.
  *
  * Return: number of characters printed.
  */
